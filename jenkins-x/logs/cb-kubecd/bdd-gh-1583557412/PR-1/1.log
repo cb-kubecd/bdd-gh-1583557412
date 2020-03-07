@@ -1,0 +1,111 @@
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1583557412-pr-qwbmq-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-ct4xt[0m
+{"level":"warn","ts":1583560568.661883,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1583560568.6623743,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1583557412-pr-qwbmq-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-vgcbk[0m
+{"level":"warn","ts":1583560570.0631196,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1583560570.0656657,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1583557412-pr-qwbmq-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1583557412-pr-qwbmq-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-cb-kubecd-bdd-gh-1583557412-pr-qwbmq-pxg9c[0m
+{"level":"warn","ts":1583560576.2476535,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1583560577.3023334,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/cb-kubecd/bdd-gh-1583557412.git @ master in path /workspace/source"}
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1583557412-pr-qwbmq-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:d7252a1b52de41aa4c7360d1b9246c7a7ccc0bde,1:ee76f88d7a4fa56c156e55f3ea4d70fd50a6642c
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git fetch origin --unshallow ee76f88d7a4fa56c156e55f3ea4d70fd50a6642c: d7252a1b52de41aa4c7360d1b9246c7a7ccc0bde:
+DEBUG: ran git fetch --unshallow origin ee76f88d7a4fa56c156e55f3ea4d70fd50a6642c: d7252a1b52de41aa4c7360d1b9246c7a7ccc0bde: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard d7252a1b52de41aa4c7360d1b9246c7a7ccc0bde
+DEBUG: ran git reset --hard d7252a1b52de41aa4c7360d1b9246c7a7ccc0bde in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge ee76f88d7a4fa56c156e55f3ea4d70fd50a6642c
+DEBUG: ran git merge ee76f88d7a4fa56c156e55f3ea4d70fd50a6642c in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e d7252a1b52de41aa4c7360d1b9246c7a7ccc0bde..HEAD
+Merged SHA ee76f88d7a4fa56c156e55f3ea4d70fd50a6642c with commit message 'My first PR commit' into base branch master
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1583557412-pr-qwbmq-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-linux[0m
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/bdd-gh-1583557412 main.go
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1583557412-pr-qwbmq-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/bdd-gh-1583557412"]            
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+2020/03/07 05:56:34 pushed blob: sha256:45ef80ee6c8811ccbc10d12f8eeeaae93eabd3a73e5110a7febd039e10ef23d0
+2020/03/07 05:56:35 pushed blob: sha256:5bfb41142e0cb8ea4c15c51a6bd495edc7e0e2402c8e4894587ecf112368fab0
+2020/03/07 05:56:36 gcr.io/jenkins-x-bdd3/bdd-gh-1583557412:0.0.0-SNAPSHOT-PR-1-1: digest: sha256:5a6e9e06e9fc3dd2c50716b573f9ee47f5f87ea3409eb4a412bee6a24a2bbf05 size: 428
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1583557412-pr-qwbmq-1[0m stage [32mfrom-build-pack[0m and container [32mstep-postbuild-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1583557412-pr-qwbmq-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-make-preview[0m
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-1-1/" Chart.yaml
+sed -i -e "s/version:.*/version: 0.0.0-SNAPSHOT-PR-1-1/" ../*/Chart.yaml
+sed -i -e "s|repository:.*|repository: gcr.io\/jenkins-x-bdd3\/bdd-gh-1583557412|" values.yaml
+sed -i -e "s/tag:.*/tag: 0.0.0-SNAPSHOT-PR-1-1/" values.yaml
+echo "  version: 0.0.0-SNAPSHOT-PR-1-1" >> requirements.yaml
+** step helm build
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+WARNING: No secrets found on "helm/repos" due: reading the secret "helm/repos" from vault: no secret "helm/repos" not found in vault
+Read credentials for https://storage.googleapis.com/chartmuseum.jenkins-x.io from vault helm/repos
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+WARNING: No secrets found on "helm/repos" due: reading the secret "helm/repos" from vault: no secret "helm/repos" not found in vault
+Read credentials for http://jenkins-x-chartmuseum:8080 from vault helm/repos
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: chartmuseum.jenkins-x.io http://chartmuseum.jenkins-x.io
+WARNING: No secrets found on "helm/repos" due: reading the secret "helm/repos" from vault: no secret "helm/repos" not found in vault
+Read credentials for http://chartmuseum.jenkins-x.io from vault helm/repos
+Successfully added Helm repository chartmuseum.jenkins-x.io.
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1583557412-pr-qwbmq-1[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-preview[0m
+Creating a preview
+Created environment cb-kubecd-bdd-gh-1583557412-pr-1
+Namespace **-cb-kubecd-bdd-gh-1583557412-pr-1 created 
+expose:
+  Annotations:
+    helm.sh/hook: post-install,post-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
+  config:
+    domain: c**d4.bdd.jenkins-x.rocks
+    exposer: Ingress
+    http: "true"
+preview:
+  image:
+    repository: gcr.io/jenkins-x-bdd3/bdd-gh-1583557412
+    tag: 0.0.0-SNAPSHOT-PR-1-1
+
+Updating PipelineActivities cb-kubecd-bdd-gh-1583557412-pr-1-1 which has status Running
+WARNING: preview application http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks not available, error was Get http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks: dial tcp: lookup bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks on 10.15.240.10:53: no such host, delaying for: 1.283034974s
+WARNING: preview application http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks not available, error was Get http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks: dial tcp: lookup bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks on 10.15.240.10:53: no such host, delaying for: 956.706092ms
+WARNING: preview application http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks not available, error was Get http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks: dial tcp: lookup bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks on 10.15.240.10:53: no such host, delaying for: 1.345569468s
+WARNING: preview application http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks not available, error was Get http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks: dial tcp: lookup bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks on 10.15.240.10:53: no such host, delaying for: 4.050971572s
+WARNING: preview application http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks not available, error was Get http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks: dial tcp: lookup bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks on 10.15.240.10:53: no such host, delaying for: 2.640264778s
+WARNING: preview application http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks not available, error was Get http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks: dial tcp: lookup bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks on 10.15.240.10:53: no such host, delaying for: 7.589083593s
+WARNING: preview application http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks not available, error was Get http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks: dial tcp: lookup bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks on 10.15.240.10:53: no such host, delaying for: 6.520544564s
+WARNING: preview application http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks not available, error was Get http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks: dial tcp: lookup bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks on 10.15.240.10:53: no such host, delaying for: 10.199180659s
+WARNING: preview application http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks not available, error was Get http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks: dial tcp: lookup bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks on 10.15.240.10:53: no such host, delaying for: 37.600023335s
+WARNING: preview application http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks not available, error was Get http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks: dial tcp: lookup bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks on 10.15.240.10:53: no such host, delaying for: 35.856053632s
+WARNING: preview application http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks not available, error was Get http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks: dial tcp: lookup bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks on 10.15.240.10:53: no such host, delaying for: 29.275456602s
+WARNING: preview application http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks not available, error was Get http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks: dial tcp: lookup bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks on 10.15.240.10:53: no such host, delaying for: 1m4.701075416s
+WARNING: preview application http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks not available, error was Get http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks: dial tcp: lookup bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks on 10.15.240.10:53: no such host, delaying for: 1m27.788364073s
+Preview application is now available at: http://bdd-gh-1583557412.**-cb-kubecd-bdd-gh-1583557412-pr-1.c**d4.bdd.jenkins-x.rocks
